@@ -1,9 +1,8 @@
 
             - name: EkLine (GitHub Action)
   # You may pin to the exact commit or the version.
-  # uses: ekline-io/ekline-github-action@5c6c6f04e7601b35bf058aef224fefc4fd90d79a
-  uses: ekline-io/ekline-github-action@v6.16.0
-  with:
+  # uses: ekline-io/ekline-github-action@5c6c6f04e7601b35bf058aef224fefc4fd90d79a            
+  
     # GITHUB_TOKEN
     github_token: # optional, default is ${{ github.token }}
     # Working directory relative to the root directory.
