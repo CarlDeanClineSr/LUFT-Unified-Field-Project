@@ -1,32 +1,47 @@
-# Clone the primary repository
-git clone https://github.com/CarlDeanClineSr/LUFT-Unified-Field-Project.git
+name: Subtree Merge LUFT Nodes
 
-# Clone the other repositories
-git clone https://github.com/CarlDeanClineSr/Lattice-Unified-Field-Theory-L.U.F.T.git
-git clone https://github.com/CarlDeanClineSr/Chronological-Craft-Inventions-LUFT.git
-git clone https://github.com/CarlDeanClineSr/CarlDean-ClineSr2.git
-cd LUFT-Unified-Field-Project
-# Add Lattice-Unified-Field-Theory-L.U.F.T
-git remote add luft-theory ../Lattice-Unified-Field-Theory-L.U.F.T
-git fetch luft-theory
-git subtree add --prefix=research luft-theory main --squash
+on:
+  workflow_dispatch:
 
-# Add Chronological-Craft-Inventions-LUFT
-git remote add luft-craft ../Chronological-Craft-Inventions-LUFT
-git fetch luft-craft
-git subtree add --prefix=notebooks luft-craft main --squash
+jobs:
+  clone-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout LUFT-Unified-Field-Project
+        uses: actions/checkout@v4
+        with:
+          repository: CarlDeanClineSr/LUFT-Unified-Field-Project
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-# Add CarlDean-ClineSr2
-git remote add luft-experiments ../CarlDean-ClineSr2
-git fetch luft-experiments
-git subtree add --prefix=experimental luft-experiments main --squash
-# Create folders if they don’t already exist
-mkdir docs src data notebooks research experimental
+      - name: Clone sibling repositories
+        run: |
+          git clone https://github.com/CarlDeanClineSr/Lattice-Unified-Field-Theory-L.U.F.T.git
+          git clone https://github.com/CarlDeanClineSr/Chronological-Craft-Inventions-LUFT.git
+          git clone https://github.com/CarlDeanClineSr/CarlDean-ClineSr2.git
 
-# Move files into their appropriate folders
-mv research/*.* research/
-mv notebooks/*.* notebooks/
-mv experimental/*.* experimental/
-git add .
-git commit -m "Merged repositories and organized structure"
-git push origin main
+      - name: Add remotes and perform subtrees
+        run: |
+          cd LUFT-Unified-Field-Project
+
+          git remote add luft-theory ../Lattice-Unified-Field-Theory-L.U.F.T
+          git fetch luft-theory
+          git subtree add --prefix=research luft-theory main --squash || echo "research already exists"
+
+          git remote add luft-craft ../Chronological-Craft-Inventions-LUFT
+          git fetch luft-craft
+          git subtree add --prefix=notebooks luft-craft main --squash || echo "notebooks already exists"
+
+          git remote add luft-experiments ../CarlDean-ClineSr2
+          git fetch luft-experiments
+          git subtree add --prefix=experimental luft-experiments main --squash || echo "experimental already exists"
+
+      - name: Prepare data folders
+        run: |
+          cd LUFT-Unified-Field-Project
+          mkdir -p docs src data notebooks research experimental
+
+      - name: Move files
+        run: |
+          cd LUFT-Unified-Field-Project
+          # Example: move files as needed
+          # mv research/*.* research/
