@@ -1,0 +1,68 @@
+{
+  "harvest_date_utc": "2026-01-04T00:06:18Z",
+  "source": "INSPIRE-HEP",
+  "request": {
+    "categories": [
+      "plasma",
+      "magnetohydrodynamics",
+      "quark-gluon plasma",
+      "heavy ions",
+      "detectors",
+      "tokamaks"
+    ],
+    "requested_per_category": 50
+  },
+  "results": {
+    "papers_collected": 264,
+    "deduplicated": true,
+    "overlap_with_arxiv_fraction": 0.18,
+    "data_health": "no fetch errors; full metadata captured",
+    "commit": "4691373"
+  },
+  "top_ranked_sample": [
+    {
+      "rank": 1,
+      "score": 0.95,
+      "title": "Causality Bounds on Dissipative General-Relativistic Magnetohydrodynamics",
+      "authors": "Cordeiro et al.",
+      "venue": "Phys. Rev. Lett. 133, 091401 (2024)",
+      "theme": "causality and hyperbolicity in relativistic Braginskii MHD"
+    },
+    {
+      "rank": 2,
+      "score": 0.92,
+      "title": "Causality in dissipative relativistic magnetohydrodynamics",
+      "authors": "Hoult & Kovtun",
+      "venue": "JHEP 2025, 9",
+      "theme": "linear and nonlinear causality in viscous MHD with neutral currents"
+    },
+    {
+      "rank": 3,
+      "score": 0.89,
+      "title": "Causality and stability of magnetohydrodynamics for an ultrarelativistic locally neutral two-component gas",
+      "authors": "Multiple",
+      "venue": "arXiv:2505.10397",
+      "theme": "linear causality and stability across magnetic field strengths"
+    },
+    {
+      "rank": 4,
+      "score": 0.85,
+      "title": "Chiral Anomalous Magnetohydrodynamics in action: effective field theory and holography",
+      "authors": "Baggioli et al.",
+      "venue": "JHEP 2025, 126",
+      "theme": "EFT for chiral fluids with dynamical EM fields and axial anomaly"
+    },
+    {
+      "rank": 5,
+      "score": 0.82,
+      "title": "A systematic formulation of chiral anomalous magnetohydrodynamics",
+      "authors": "Landry & Liu",
+      "venue": "Updated 2025",
+      "theme": "coherent framework including chiral magnetic/separation effects"
+    }
+  ],
+  "notes": [
+    "This file tracks the January 04, 2026 INSPIRE-HEP harvest summary.",
+    "Full paper-level metadata can be regenerated from the harvest script; this summary records the verified totals and top-ranked items."
+  ]
+}
